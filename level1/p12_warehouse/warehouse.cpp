@@ -14,7 +14,47 @@ struct Goods
 	char name[NAME_LENGTH];
 	int num,type;
 }g[MAXN];
+void Unload(); 
+void Load();
+void Print();
+void Output();
+void Input();
+void Clear(int posi);
 
+int main()
+{
+	printf("enter 1 if you want to read from the file, 0 for other cases.\n");
+	printf("(note:enter 0 if this is your first time using this software.)\n");
+	int jud;
+	scanf("%d",&jud);
+	if(jud==1)
+	{
+		freopen("goods.in","r",stdin);
+		Input();
+		fclose(stdin);
+	}
+	
+	freopen("CON","r",stdin);// running on windows,DOS
+	//freopen("dev/tty","r",stdin)  //running on unix, linux, max os x, android
+	while(1)
+	{ 
+		printf("-------------------------------------------------\n");
+		printf("select the option\n");
+		printf("0:show the current goods list.\n");
+		printf("1:load goods in storage.\n");
+		printf("2:unload goods from storage.\n");
+		printf("3:exit the software.\n");
+		scanf("%d",&jud);
+		if(jud==0) Print();
+		else if(jud==1) Load();
+		else if(jud==2) Unload();
+		else 
+		{
+			Output();
+			return 0;
+		}
+	}
+}
 void Clear(int posi)
 {
 	while(posi<GoodsTypes)
@@ -112,37 +152,3 @@ void Unload()
 	Sleep(1000); 
 	return;
 } 
-int main()
-{
-	printf("enter 1 if you want to read from the file, 0 for other cases.\n");
-	printf("(note:enter 0 if this is your first time using this software.)\n");
-	int jud;
-	scanf("%d",&jud);
-	if(jud==1)
-	{
-		freopen("goods.in","r",stdin);
-		Input();
-		fclose(stdin);
-	}
-	
-	freopen("CON","r",stdin);// running on windows,DOS
-	//freopen("dev/tty","r",stdin)  //running on unix, linux, max os x, android
-	while(1)
-	{ 
-		printf("-------------------------------------------------\n");
-		printf("select the option\n");
-		printf("0:show the current goods list.\n");
-		printf("1:load goods in storage.\n");
-		printf("2:unload goods from storage.\n");
-		printf("3:exit the software.\n");
-		scanf("%d",&jud);
-		if(jud==0) Print();
-		else if(jud==1) Load();
-		else if(jud==2) Unload();
-		else 
-		{
-			Output();
-			return 0;
-		}
-	}
-}

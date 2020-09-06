@@ -12,53 +12,11 @@ struct node
 	int x,y;
 }q[MAXN*MAXN];
 
-void Draw(int xx,int yy)
-{
-	for(int i=1;i<=LENGTH;i++)
-	{
-		for(int j=1;j<=LENGTH;j++)
-		if(i==xx&&j==yy) printf("i");
-		else if(maze[i][j]==0)printf("x");
-		else if(maze[i][j]==1)printf(" ");
-		else if(maze[i][j]==2)printf("l");
-		else if(maze[i][j]==3)printf("p");
-		printf("\n");
-	}
-	
-}
-void P_note(int point)
-{
-	printf("Hello! You are the 'i' in the maze,try to push all the 'l' into the 'p'!\n");
-	printf("Your current point is: %d\n",point);
-}
-void E_note(int x)
-{
-	printf("You have win the game! Congratulations!\n");
-	printf("Your final point is %d",x);
-}
-void Read_maze(int x)
-{
-	name[0]='0'+x;
-	name[1]='.';
-	name[2]='i';
-	name[3]='n';
-	freopen(name,"r",stdin);
-	scanf("%d",&LENGTH);
-	for(int i=1;i<=LENGTH;i++)
-	for(int j=1;j<=LENGTH;j++)
-	scanf("%d",&maze[i][j]);
-
-}
-
-bool Check()
-{
-	int jud=1;
-	for(int i=1;i<=LENGTH;i++)
-	for(int j=1;j<=LENGTH;j++)
-	if(maze[i][j]==3) jud=0;
-	return jud;
-}
-
+void Draw(int xx,int yy); 
+void P_note(int point);
+void E_note(int x);
+void Read_maze(int x);
+bool Check();
 int main()
 {
 	printf("please choose your level!(1-3)");
@@ -108,3 +66,50 @@ int main()
 	}
 	
 } 
+void Draw(int xx,int yy)
+{
+	for(int i=1;i<=LENGTH;i++)
+	{
+		for(int j=1;j<=LENGTH;j++)
+		if(i==xx&&j==yy) printf("i");
+		else if(maze[i][j]==0)printf("x");
+		else if(maze[i][j]==1)printf(" ");
+		else if(maze[i][j]==2)printf("l");
+		else if(maze[i][j]==3)printf("p");
+		printf("\n");
+	}
+	
+}
+void P_note(int point)
+{
+	printf("Hello! You are the 'i' in the maze,try to push all the 'l' into the 'p'!\n");
+	printf("Your current point is: %d\n",point);
+}
+void E_note(int x)
+{
+	printf("You have win the game! Congratulations!\n");
+	printf("Your final point is %d",x);
+}
+void Read_maze(int x)
+{
+	name[0]='0'+x;
+	name[1]='.';
+	name[2]='i';
+	name[3]='n';
+	freopen(name,"r",stdin);
+	scanf("%d",&LENGTH);
+	for(int i=1;i<=LENGTH;i++)
+	for(int j=1;j<=LENGTH;j++)
+	scanf("%d",&maze[i][j]);
+
+}
+
+bool Check()
+{
+	int jud=1;
+	for(int i=1;i<=LENGTH;i++)
+	for(int j=1;j<=LENGTH;j++)
+	if(maze[i][j]==3) jud=0;
+	return jud;
+}
+

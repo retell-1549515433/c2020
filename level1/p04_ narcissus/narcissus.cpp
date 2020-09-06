@@ -1,9 +1,7 @@
 #include<stdio.h>
 #include<math.h>
-int pow(int x)
-{
-	return x*x*x;
-}
+int pow(int x);
+
 int main()
 {
 	for(int i=100;i<=999;i++)
@@ -19,3 +17,7 @@ int main()
 		i=x;
 	}
 } 
+int pow(int x)
+{
+	return x*x*x;
+}

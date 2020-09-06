@@ -2,6 +2,22 @@
 #include<cmath>
 #include<string.h>
 char opt[20000];
+void encrypt();
+void decrypt();
+int main()
+{
+	while(1)
+	{
+		memset(opt,0,sizeof(opt));
+		printf("select the option\n");
+		printf("1: encrypt a string\n");
+		printf("2: decrypt a string\n");
+		int jud;
+		scanf("%d",&jud);
+		if(jud==1) encrypt();
+		else decrypt();
+	}
+}
 void encrypt()
 {
 	
@@ -24,18 +40,4 @@ void decrypt()
 	}
 	printf("%s\n",opt);
 	return;
-}
-int main()
-{
-	while(1)
-	{
-		memset(opt,0,sizeof(opt));
-		printf("select the option\n");
-		printf("1: encrypt a string\n");
-		printf("2: decrypt a string\n");
-		int jud;
-		scanf("%d",&jud);
-		if(jud==1) encrypt();
-		else decrypt();
-	}
 }

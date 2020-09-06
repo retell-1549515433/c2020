@@ -11,6 +11,36 @@ struct node
 	int x,y;
 }q[MAXN*MAXN];
 
+void E_note(); 
+void P_note();
+void Draw(int xx,int yy);
+void Create_map();
+void Swap(int *a,int *b);
+
+int main()
+{
+	//freopen("1.txt","w",stdout); 
+	Create_map();
+	node play;
+	play.x=2,play.y=2;
+	while(1)
+	{
+		if(maze[play.x][play.y]==2)
+		{
+			E_note();
+			return 0;
+		}
+		P_note();
+		Draw(play.x,play.y);
+		char move;
+		move=getch();
+		if(move==72&&maze[play.x-1][play.y]!=0)  play.x-=1; 
+        else if(move==80&&maze[play.x+1][play.y]!=0)  play.x+=1;
+        else if(move==75&&maze[play.x][play.y-1]!=0)  play.y-=1;
+		else if(move==77&&maze[play.x][play.y+1]!=0)  play.y+=1;
+		system("cls");
+	}	
+} 
 void Swap(int *a,int *b)
 {
 	int temp=*a;
@@ -80,28 +110,3 @@ void E_note()
 {
 	printf("you have win the game! congratulations!\n");
 }
-int main()
-{
-	//freopen("1.txt","w",stdout); 
-	Create_map();
-	node play;
-	play.x=2,play.y=2;
-	while(1)
-	{
-		if(maze[play.x][play.y]==2)
-		{
-			E_note();
-			return 0;
-		}
-		P_note();
-		Draw(play.x,play.y);
-		char move;
-		move=getch();
-		if(move==72&&maze[play.x-1][play.y]!=0)  play.x-=1; 
-        else if(move==80&&maze[play.x+1][play.y]!=0)  play.x+=1;
-        else if(move==75&&maze[play.x][play.y-1]!=0)  play.y-=1;
-		else if(move==77&&maze[play.x][play.y+1]!=0)  play.y+=1;
-		system("cls");
-	}
-	
-} 

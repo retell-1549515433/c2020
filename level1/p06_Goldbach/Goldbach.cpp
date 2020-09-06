@@ -4,6 +4,16 @@
 int Prime_tol,Prime[100];
 bool isPrime[100];
 
+void pre();
+void search(int x);
+
+int main()
+{
+	pre();
+	for(int i=4;i<=100;i+=2)
+	search(i);
+}
+
 void pre()
 {
 	for(int i=2;i<=100;i++)
@@ -37,10 +47,4 @@ void search(int x)
 		}
 	}
 	printf("couldn't find an equation.");
-}
-int main()
-{
-	pre();
-	for(int i=4;i<=100;i+=2)
-	search(i);
 }
